@@ -1,95 +1,52 @@
+"use client"
+import React from "react";
 import Image from "next/image";
-import styles from "./page.module.css";
+
+// Components
+import SiteLayout from "../components/SiteLayout";
+import HeroSection from "../components/herosection";
+import WorkSection from "../components/worksection";
+import ServiceSection from "../components/servicesection";
+import ContactSection from "../components/contactsection";
+
+// Bootstrap
+import { Container } from "react-bootstrap";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <SiteLayout>
+      <HeroSection />
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      <Container className="my-5">
+        <Row className="align-items-center">
+          <Col md={6} className="mb-4">
+            <h2>About Us </h2>
+            <h6 className="text-muted">Merliah Summers vibes</h6>
+            <p className="mt-3">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, ratione vitae voluptas dolorum consequuntur alias velit id in minus ex hic autem quidem soluta odio cum veritatis commodi expedita. Debitis?</p>
+            <Button className="btn-primary-pink me-2">Learn More</Button>
+            <Button className="btn-outline-pink" href="#work" >Our Work</Button>
+          </Col>
+          <Col md={6} className="text-center">
+            <Image src="/images/about.jpg" alt="about" width={520}
+              height={360} style={{ borderRadius: 16, objectFit: 'cover' }}></Image>
+          </Col>
+        </Row>
+      </Container>
+      <section className="py-5">
+        <WorkSection></WorkSection>
+      </section>
+      <section className="py-5 services-section">
+        <ServiceSection></ServiceSection>
+      </section>
+      <section id="contact">
+        <Container className="container-narrow">
+          <ContactSection></ContactSection>
+        </Container>
+      </section>
+    </SiteLayout>
   );
 }
